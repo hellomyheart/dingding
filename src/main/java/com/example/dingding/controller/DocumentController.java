@@ -4,10 +4,7 @@ import com.example.dingding.mapper.DocumentMapper;
 import com.example.dingding.service.DocumentService;
 import com.example.dingding.vo.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -26,9 +23,28 @@ public class DocumentController {
     @Autowired
     DocumentService documentService;
 
+    /**
+     * 上传文档
+     *
+     * @param file
+     * @return
+     * @throws IOException
+     */
     @PostMapping("add")
     public ResponseResult add(@RequestParam("file") MultipartFile file) throws IOException {
         return documentService.add(file);
+    }
+
+    /**
+     * 修改文档
+     *
+     * @param file
+     * @return
+     * @throws IOException
+     */
+    @PostMapping("update")
+    public ResponseResult update(@RequestParam("file") MultipartFile file,String filename) throws IOException {
+        return documentService.update(file, filename);
     }
 
 

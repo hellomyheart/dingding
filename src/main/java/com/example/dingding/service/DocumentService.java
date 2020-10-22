@@ -11,4 +11,6 @@ public interface DocumentService extends IService<Document>{
 
 
     ResponseResult add(MultipartFile multipartFile) throws IOException;
+
+    ResponseResult update(MultipartFile file,String filename) throws IOException;
 }

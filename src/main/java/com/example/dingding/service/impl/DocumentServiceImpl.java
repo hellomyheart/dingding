@@ -1,5 +1,6 @@
 package com.example.dingding.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.dingding.third.AliOssUtil;
 import com.example.dingding.util.StrUtil;
 import com.example.dingding.vo.ResponseResult;
@@ -48,9 +49,36 @@ public class DocumentServiceImpl extends ServiceImpl<DocumentMapper, Document> i
         return ResponseResult.fail();
     }
 
+    @Override
+    public ResponseResult update(MultipartFile file,String filename) throws IOException {
+        if (!file.isEmpty()) {
+            String fillname = rename(file.getOriginalFilename());
+            String url = AliOssUtil.uploadByte(AliOssUtil.BucketName, fillname, file.getBytes());
+            if (StrUtil.checkNoEmpty(url)){
+                Document document =new Document();
+
+                Date date=new Date();
+                document.setCreatetime(date);
+                document.setUpdatetime(date);
+                document.setDAddress(url);
+                //TODO:后面修改
+                document.setUId(1);
+
+                document.setDName(fillname);
+                QueryWrapper<Document> queryWrapper=new QueryWrapper<>();
+                queryWrapper.eq(Document.COL_D_NAME, filename);
+                //TODO:后面需要修改（用户ID现在是死的）
+                queryWrapper.eq(Document.COL_U_ID,1);
+                documentMapper.update(document,queryWrapper);
+                return ResponseResult.ok();
+            }
+        }
+        return ResponseResult.fail();
+    }
+
     private String rename(String filename) {
-        if (filename.length() > 50) {
-            filename = filename.substring(filename.length() - 50);
+        if (filename.length() > 20) {
+            filename = filename.substring(filename.length() - 20);
         }
         return UUID.randomUUID().toString().replaceAll("-", "") + filename;
     }
