@@ -3,6 +3,8 @@ package com.example.dingding.vo;
 import com.example.dingding.core.type.RType;
 import lombok.Data;
 
+import java.io.Serializable;
+
 
 /**
  * @description 统一返回结果集
@@ -12,8 +14,9 @@ import lombok.Data;
  * @date: 2020/10/19 下午3:52
  */
 @Data
-public class ResponseResult<T> {
+public class ResponseResult<T> implements Serializable {
 
+    private static final long serialVersionUID = -681553741526799980L;
     /**
      * return code
      */

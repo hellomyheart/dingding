@@ -12,12 +12,17 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     #使用阿里巴巴druid数据源，默认使用自带的
     type: com.alibaba.druid.pool.DruidDataSource
-
+  servlet:
+    multipart:
+      #      设置单个文件大小
+      max-file-size: 50MB
+      #      设置单次请求文件的总大小
+      max-request-size: 50MB
 
 # mybatis配置
 mybatis-plus:
   # 配置别名需要扫描的包
-  type-aliases-package: cn.hellomyheart.kataba.entity
+  type-aliases-package: com.example.dingding
   # 引入映射文件
   mapper-locations: classpath:mapper/*.xml
   configuration:
@@ -27,5 +32,5 @@ mybatis-plus:
 
 
 #自定义配置
-kataba:
+dingding:
   passkey: Ch5CX73J5pUlW+/sK11VDA==
