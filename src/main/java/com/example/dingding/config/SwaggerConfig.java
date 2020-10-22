@@ -23,7 +23,7 @@ public class SwaggerConfig {
 
     private ApiInfo createAI(){
         return new ApiInfoBuilder().title("钉钉项目的在线接口文档").//设置标题
-                contact(new Contact("Stephen Shen","http://kataba.hellomyheart.cn","stepenshen@foxmail.com"))
+                contact(new Contact("Stephen Shen","http://dingding.hellomyheart.cn","stepenshen@foxmail.com"))
                 .version("0.0.1").description("这是一个在线接口文档，可以直接查看接口的信息并且可以实现接口的测试")
                 .build();
     }
