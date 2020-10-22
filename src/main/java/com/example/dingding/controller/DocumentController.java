@@ -47,5 +47,19 @@ public class DocumentController {
         return documentService.update(file, filename);
     }
 
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    @GetMapping("delete/{id}")
+    public ResponseResult delete(@PathVariable("id") Integer id){
+        boolean b = documentService.removeById(id);
+        if (b){
+            return ResponseResult.ok();
+        }
+        return ResponseResult.fail();
+    }
+
 
 }
