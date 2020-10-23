@@ -1,5 +1,6 @@
 package com.example.dingding.service;
 
+import com.example.dingding.dto.UserDto;
 import com.example.dingding.entity.User;
 import com.example.dingding.vo.ResponseResult;
 import com.sun.prism.impl.Disposer;
@@ -17,9 +18,11 @@ public interface UserService {
 
 
 
-    ResponseResult checkPhone(String phone);
+    ResponseResult checkPhone(String phone);//效验手机号
 
-    ResponseResult checkNickName(String name);
+    ResponseResult checkNickName(String nickname);//效验用户名
+
+    ResponseResult register(UserDto dto);//注册
 
 
 
