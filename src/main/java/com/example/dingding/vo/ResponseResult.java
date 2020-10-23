@@ -51,6 +51,7 @@ public class ResponseResult<T> {
      * @return
      */
     public static <T> ResponseResult ok(T data) {
+
         return getResponseResult(RType.成功.getVal(),"OK",data);
     }
 
