@@ -2,9 +2,13 @@ package com.example.dingding.service.impl;
 
 import com.example.dingding.entity.GroupUser;
 import com.example.dingding.mapper.GroupMapper;
+import com.example.dingding.mapper.GroupUserMapper;
 import com.example.dingding.service.GroupUserService;
+import com.example.dingding.vo.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 /**
  * projectName: dingding
@@ -15,15 +19,26 @@ import org.springframework.stereotype.Service;
 @Service
 public class GroupUserServiceImpl implements GroupUserService {
     @Autowired
-    private GroupMapper groupMapper;
+    private GroupUserMapper groupUserMapper;
     @Override
-    public void add(GroupUser groupUser) {
+    public ResponseResult add(GroupUser groupUser) {
+        groupUser.setCreateTime(new Date());
+        int insert = groupUserMapper.insert(groupUser);
+        if(insert >0){
+            return ResponseResult.ok();
+        }
+        return ResponseResult.fail();
 
     }
 
     @Override
-    public void delectById(int id) {
-        groupMapper.deleteById(id);
+    public ResponseResult delectById(Integer id) {
+        int i = groupUserMapper.deleteById(id);
+        if(i >0){
+            return ResponseResult.ok();
+        }
+        return ResponseResult.fail();
+
 
     }
 }

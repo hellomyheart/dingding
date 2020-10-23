@@ -20,17 +20,17 @@ import org.springframework.web.bind.annotation.RestController;
 public class GroupController {
     @Autowired
     private GroupService groupService;
-    @RequestMapping("/set")
-    private ResponseResult found(String groupName){
-        return new ResponseResult
+
+    @GetMapping("/update")
+    public ResponseResult update (Group group){
+
+        return groupService.update(group);
     }
 
-    @GetMapping("update")
-    public void update(){
-        Group group = new Group();
-        group.setId(2);
-        group.setGName("");
-        groupService.update(group);
+
+    @RequestMapping("/set")
+    public ResponseResult insertInfo(Group group){
+        return groupService.insertInfo(group);
     }
 
 }

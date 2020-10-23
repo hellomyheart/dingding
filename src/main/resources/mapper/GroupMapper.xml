@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dingding.mapper.GroupMapper">
+    <resultMap id="add" type="com.example.dingding.entity.Group">
+        <id column="id" property="id"></id>
+        <result column="u_id" property="uId"></result>
+        <result column="g_name" property="gName"></result>
+        <result column="createtime" property="createTime"></result>
+        <result column="updatetime" property="updateTime"></result>
+    </resultMap>
+    <insert id="insertInfo" parameterType="com.example.dingding.entity.Group">
+        insert into `group`(
+        <trim suffixOverrides=",">
+            <if test="uId != null">
+                u_id,
+            </if>
+            <if test="gName != null">
+                g_name,
+            </if>
+        </trim>
+        )
+        values (
+        <trim suffixOverrides=",">
+            <if test="uId != null">
+                #{uId},
+            </if>
+            <if test="gName != null">
+                #{gName},
+            </if>
+        </trim>
+        )
+    </insert>
+    <update id="updateInfo" parameterType="com.example.dingding.entity.Group" >
+        update `group`
+        <set>
+            <if test="uId != null">
+                u_id = #{uId},
+            </if>
+            <if test="gName != null">
+                g_name=#{gName},
+
+            </if>
+            <if test="updateTime != null">
+                updatetime=#{updateTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>

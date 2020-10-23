@@ -2,8 +2,9 @@ package com.example.dingding.service;
 
 
 import com.example.dingding.entity.GroupUser;
+import com.example.dingding.vo.ResponseResult;
 
 public interface GroupUserService  {
-    public void add(GroupUser groupUser);
-    public void delectById(int id);
+    public ResponseResult add(GroupUser groupUser);
+    public ResponseResult delectById(Integer id);
 }

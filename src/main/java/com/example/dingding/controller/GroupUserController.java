@@ -2,6 +2,7 @@ package com.example.dingding.controller;
 
 import com.example.dingding.entity.GroupUser;
 import com.example.dingding.service.GroupUserService;
+import com.example.dingding.vo.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,17 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
  * description:
  */
 @RestController
-@RequestMapping("group")
+@RequestMapping("/group")
 public class GroupUserController {
     @Autowired
     private GroupUserService groupUserService;
-    @GetMapping("insert")
-    public void add(){
-        GroupUser user = new GroupUser();
-        groupUserService.add(user);
+    @GetMapping("/insert")
+    public ResponseResult add(GroupUser groupUser){
+        return groupUserService.add(groupUser);
+
+
     }
-    @GetMapping("delect")
-    public void delectById(int id){
-        groupUserService.delectById(id);
+    @GetMapping("/delect")
+    public ResponseResult delectById(int id){
+       return groupUserService.delectById(id);
     }
 }

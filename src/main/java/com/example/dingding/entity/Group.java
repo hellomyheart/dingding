@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -25,9 +26,12 @@ public class Group {
     private Integer uId;
     @TableField("g_name")
     private String gName;
+
     @TableField("createtime")
+    @JsonFormat(pattern = "YYYY-MM-dd")
     private Date createTime;
     @TableField("updatetime")
+    @JsonFormat(pattern = "YYYY-MM-dd")
     private Date updateTime;
 
     public Group(Integer id, Integer uId, String gName, Date createTime, Date updateTime) {

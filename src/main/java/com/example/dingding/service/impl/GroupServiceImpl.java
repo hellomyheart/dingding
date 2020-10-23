@@ -1,14 +1,16 @@
 package com.example.dingding.service.impl;
 
+import com.example.dingding.dto.GroupDto;
 import com.example.dingding.entity.Group;
 import com.example.dingding.mapper.GroupMapper;
 import com.example.dingding.service.GroupService;
 import com.example.dingding.vo.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
-import java.util.List;
+
 
 /**
  * projectName: dingding
@@ -20,20 +22,37 @@ import java.util.List;
 public class GroupServiceImpl implements GroupService {
     @Autowired
     private GroupMapper groupMapper;
+
+        @Override
+        public ResponseResult update(Group group){
+            System.out.println("group = " + group);
+            group.setId(1);
+            if (groupMapper.updateInfo(group) > 0) {
+
+                return ResponseResult.ok();
+
+            }else{
+
+                return ResponseResult.fail();
+
+            }
+
+
+
+
+
+    }
     @Override
-    public ResponseResult found(String groupName,Integer uId) {
-        Group g= new Group(uId,groupName,new Date(),new Date());
-        int row =  groupMapper.insert(g);
-        if (row >0){
-            return  ResponseResult.getResponseResult();
+    public ResponseResult insertInfo(Group group) {
+            group.setCreateTime(new Date());
+        int i = groupMapper.insertInfo(group);
+        if(i >0){
+            return ResponseResult.ok();
+        }else {
+            return ResponseResult.fail();
         }
-        return ResponseResult.getResponseResult();
-    }
 
-    @Override
-    public void update(Group group) {
+
 
     }
-
-
 }
