@@ -22,15 +22,15 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/organization/")
 public class OrganizationController {
     @Autowired
-    private OrganizationService service;
+    private OrganizationService organizationService;
 
     @PostMapping("addOt")
     public ResponseResult add(@RequestBody OrganizationDto dto, HttpServletRequest request){
-        return service.add(request.getHeader(SystemConfig.TOKEN_HEADER),dto);
+        return organizationService.add(request.getHeader(SystemConfig.TOKEN_HEADER),dto);
     }
 
     @PostMapping("deleteOt")
     public ResponseResult deleteOt(Integer id){
-        return service.deleteOt(id);
+        return organizationService.deleteOt(id);
     }
 }
