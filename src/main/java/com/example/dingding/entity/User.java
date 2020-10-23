@@ -1,10 +1,13 @@
 package com.example.dingding.entity;
 
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  * @description
@@ -14,9 +17,18 @@ import java.io.Serializable;
  * @date: 2020/10/21 上午8:33
  */
 @Data
-@TableName("t_user")
+@TableName("user")
 @NoArgsConstructor
 public class User implements Serializable {
+    @TableId(type = IdType.AUTO)
+    private  Integer id;
+    private  String phone;
+    private String email;
+    private  String password;
+    private String nickname;
+    private  Integer status;
+    private String icon;
+    private Date createtime;
+    private Date upadatetime;
 
-    private static final long serialVersionUID = 1597284071733675232L;
 }

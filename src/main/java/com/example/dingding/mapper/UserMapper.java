@@ -11,4 +11,5 @@ import com.example.dingding.entity.User;
  * @date: 2020/10/21 上午8:42
  */
 public interface UserMapper extends BaseMapper<User> {
+
 }
