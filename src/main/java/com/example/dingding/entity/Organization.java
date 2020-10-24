@@ -12,7 +12,7 @@ import java.util.Date;
  * projectName: dingding
  * author: CGY
  * time: 2020/10/22 14:42
- * description:
+ * description:组织表
  */
 @Data
 @TableName("organization")
