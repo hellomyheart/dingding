@@ -20,6 +20,8 @@ public class GroupLog {
     @TableId(type = IdType.AUTO)
     @TableField("id")
     private Integer id;
+    @TableField("u_id")
+    private Integer uId;
     @TableField("createtime")
     private Date createTime;
     @TableField("o_type")
@@ -27,7 +29,8 @@ public class GroupLog {
     @TableField("status")
     private String status;
 
-    public GroupLog(Date createTime, String oType, String status) {
+    public GroupLog(Integer uId,Date createTime, String oType, String status) {
+        this.uId=uId;
         this.createTime = createTime;
         this.oType = oType;
         this.status = status;

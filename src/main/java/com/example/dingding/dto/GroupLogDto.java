@@ -11,6 +11,8 @@ import lombok.Data;
  */
 @Data
 public class GroupLogDto {
+    @TableField("u_id")
+    private Integer uId;
     @TableField("o_type")
     private String oType;
     @TableField("status")

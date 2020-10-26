@@ -8,6 +8,7 @@ import com.example.dingding.vo.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 /**
@@ -21,7 +22,7 @@ public class GroupUserServiceImpl implements GroupUserService {
     @Autowired
     private GroupUserMapper groupUserMapper;
     @Override
-    public ResponseResult add(GroupUser groupUser) {
+    public ResponseResult add(String token ,GroupUser groupUser) {
         groupUser.setCreateTime(new Date());
         int insert = groupUserMapper.insert(groupUser);
         if(insert >0){

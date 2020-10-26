@@ -6,8 +6,8 @@ import com.example.dingding.vo.ResponseResult;
 
 public interface GroupService {
 
-    public ResponseResult update(Group group);
+    public ResponseResult update(String token,Group group);
 
-    public ResponseResult insertInfo(Group group);
+    public ResponseResult insertInfo(String token,Group group);
 
 }

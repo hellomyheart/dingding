@@ -24,7 +24,7 @@ public class GroupServiceImpl implements GroupService {
     private GroupMapper groupMapper;
 
         @Override
-        public ResponseResult update(Group group){
+        public ResponseResult update(String token,Group group){
             System.out.println("group = " + group);
             group.setId(1);
             if (groupMapper.updateInfo(group) > 0) {
@@ -43,7 +43,7 @@ public class GroupServiceImpl implements GroupService {
 
     }
     @Override
-    public ResponseResult insertInfo(Group group) {
+    public ResponseResult insertInfo(String token,Group group) {
             group.setCreateTime(new Date());
         int i = groupMapper.insertInfo(group);
         if(i >0){

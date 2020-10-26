@@ -1,4 +1,5 @@
 package com.example.dingding.service.impl;
+import com.example.dingding.dto.GroupLogDto;
 import com.example.dingding.entity.GroupLog;
 import com.example.dingding.mapper.GroupLogMapper;
 import com.example.dingding.service.GroupLogService;
@@ -17,7 +18,7 @@ public class GroupLogServiceImpl implements GroupLogService {
     @Autowired
     private  GroupLogMapper groupLogMapper;
     @Override
-    public ResponseResult all(Integer id) {
+    public ResponseResult all(Integer uId) {
 
         return ResponseResult.ok();
     }
