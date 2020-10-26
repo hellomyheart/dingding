@@ -13,7 +13,6 @@ spring:
     #使用阿里巴巴druid数据源，默认使用自带的
     type: com.alibaba.druid.pool.DruidDataSource
 
-
 # mybatis配置
 mybatis-plus:
   # 配置别名需要扫描的包
@@ -29,3 +28,5 @@ mybatis-plus:
 #自定义配置
 dingding:
   passkey: Ch5CX73J5pUlW+/sK11VDA==
+
+

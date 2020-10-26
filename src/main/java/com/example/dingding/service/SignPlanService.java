@@ -1,5 +1,8 @@
 package com.example.dingding.service;
 
+import com.example.dingding.dto.SignPlanDto;
+import com.example.dingding.vo.ResponseResult;
+
 /**
  * projectName: dingding
  *
@@ -12,11 +15,11 @@ public interface SignPlanService {
     /**
      * 删除打卡计划
      */
-    void delete();
+    ResponseResult delete(SignPlanDto dto);
 
     /**
      * 创建打卡计划
      */
-    void create();
+    ResponseResult create( SignPlanDto dto);
 
 }

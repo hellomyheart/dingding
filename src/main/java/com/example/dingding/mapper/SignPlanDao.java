@@ -1,5 +1,9 @@
 package com.example.dingding.mapper;
 
+import com.example.dingding.entity.SignPlan;
+import com.example.dingding.vo.ResponseResult;
+import org.apache.ibatis.annotations.Param;
+
 /**
  * projectName: dingding
  *
@@ -12,10 +16,10 @@ public interface SignPlanDao {
     /**
      * 删除打卡计划
      */
-    void delete();
+    ResponseResult delete(SignPlan signPlan);
 
     /**
      * 创建打卡计划
      */
-    void create();
+    ResponseResult create(SignPlan signPlan);
 }

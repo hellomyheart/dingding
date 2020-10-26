@@ -1,5 +1,10 @@
 package com.example.dingding.mapper;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.dingding.dto.SignDto;
+import com.example.dingding.entity.Sign;
+import com.example.dingding.vo.ResponseResult;
+
 /**
  * projectName: dingding
  *
@@ -12,17 +17,13 @@ public interface SignDao {
     /**
      * 打卡
      */
-    void add();
+    ResponseResult add(Sign sign);
 
     /**
      * 补卡
      */
-    void reissue();
+    ResponseResult reissue(Sign sign);
 
-    /**
-     * 打卡统计
-     * @param uId
-     * @return
-     */
-    int summation(int uId);
+
+    ResponseResult summation(int uId);
 }

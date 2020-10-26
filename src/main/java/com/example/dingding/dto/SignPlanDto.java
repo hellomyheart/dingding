@@ -1,11 +1,6 @@
-package com.example.dingding.entity;
+package com.example.dingding.dto;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.NoArgsConstructor;
-import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.Date;
 
@@ -13,29 +8,25 @@ import java.util.Date;
  * projectName: dingding
  *
  * @author: xr
- * time: 2020/10/22 20:40
- * description:
+ * time: 2020/10/26 19:14
+ * description:SignPlan
  */
-@TableName("sign_plan")
-@NoArgsConstructor
-public class SignPlan {
-    @TableId(type = IdType.AUTO)
+
+public class SignPlanDto {
     private int id;
     private int gId;
     private int uId;
-    private String spName;
-    @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
-    private Date startTime;
-    @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
-    private Date endTime;
-    @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
+    private String spname;
+    @JsonFormat(pattern = "YYYY-MM-dd")
+    private Date starttime;
+    @JsonFormat(pattern = "YYYY-MM-dd")
+    private Date endtime;
+    @JsonFormat(pattern = "YYYY-MM-dd")
     private Date startDate;
-    @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
+    @JsonFormat(pattern = "YYYY-MM-dd")
     private Date endDate;
-
     @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
     private Date createTime;
-
     @JsonFormat(pattern = "YYYY-MM-dd HH:mm:ss")
     private Date updateTime;
 
@@ -63,28 +54,28 @@ public class SignPlan {
         this.uId = uId;
     }
 
-    public String getSpName() {
-        return spName;
+    public String getSpname() {
+        return spname;
     }
 
-    public void setSpName(String spName) {
-        this.spName = spName;
+    public void setSpname(String spname) {
+        this.spname = spname;
     }
 
-    public Date getStartTime() {
-        return startTime;
+    public Date getStarttime() {
+        return starttime;
     }
 
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
+    public void setStarttime(Date starttime) {
+        this.starttime = starttime;
     }
 
-    public Date getEndTime() {
-        return endTime;
+    public Date getEndtime() {
+        return endtime;
     }
 
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
+    public void setEndtime(Date endtime) {
+        this.endtime = endtime;
     }
 
     public Date getStartDate() {
@@ -117,9 +108,5 @@ public class SignPlan {
 
     public void setUpdateTime(Date updateTime) {
         this.updateTime = updateTime;
-    }
-
-    public SignPlan(int id) {
-        this.id = id;
     }
 }

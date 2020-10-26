@@ -1,5 +1,8 @@
 package com.example.dingding.service;
 
+import com.example.dingding.entity.Sign;
+import com.example.dingding.vo.ResponseResult;
+
 /**
  * projectName: dingding
  *
@@ -12,16 +15,16 @@ public interface SignService {
     /**
      * 打卡
      */
-    void add();
+    ResponseResult add(Sign sign);
 
     /**
      * 补卡
      */
-    void reissue();
+    ResponseResult reissue(Sign sign);
 
     /**
      * 打卡统计
      * @return
      */
-    int summation(int uId);
+    ResponseResult summation(int uId);
 }

@@ -3,7 +3,15 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!--namespace 命名空间   必须是唯一的-->
-<mapper namespace="com.example.dingding.mapper.SignDao">
+<mapper namespace="com.example.dingding.mapper.SignPlanDao">
+    <insert id="create" parameterType="com.example.dingding.entity.SignPlan">
+        INSERT INTO sign_plan (g_id,u_id,sp_name,start_time,end_time,start_date,end_date,createtime)
+        VALUES (#{gId},#{uId},#{spName},#{startTime},#{endTime},#{startDate},#{endDate},NOW())
+    </insert>
+    <delete id="delete" parameterType="com.example.dingding.entity.SignPlan">
+        delete from sign_plan where id = #{id}
+    </delete>
+
 
 
 </mapper>

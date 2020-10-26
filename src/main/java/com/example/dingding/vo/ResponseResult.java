@@ -11,7 +11,7 @@ import lombok.Data;
  * @author: Stephen Shen
  * @date: 2020/10/19 下午3:52
  */
-@Data
+
 public class ResponseResult<T> {
 
     /**
@@ -28,8 +28,31 @@ public class ResponseResult<T> {
      */
     private T data;
 
+    public int getCode() {
+        return code;
+    }
 
-    public static <T> ResponseResult getResponseResult(int code,String msg,T data){
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+    public void setMsg(String msg) {
+        this.msg = msg;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
+    }
+
+    public static <T> ResponseResult getResponseResult(int code, String msg, T data){
         ResponseResult responseResult = new ResponseResult<>();
         responseResult.setCode(code);
         responseResult.setMsg(msg);

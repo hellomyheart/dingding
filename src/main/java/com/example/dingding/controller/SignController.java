@@ -1,6 +1,8 @@
 package com.example.dingding.controller;
 
+import com.example.dingding.entity.Sign;
 import com.example.dingding.service.SignService;
+import com.example.dingding.vo.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,19 +20,19 @@ public class SignController {
     @Autowired
     private SignService signService;
     @RequestMapping("/add")
-    public void add(){
-        signService.add();
+    public ResponseResult add(Sign sign){
+        return signService.add(sign);
 
     }
     @RequestMapping("/reissue")
-    public void reissue(){
-        signService.reissue();
+    public ResponseResult reissue(Sign sign){
+        return signService.reissue(sign);
 
     }
     @RequestMapping("/reissue")
-    public int summation(int uId){
-        int summation = signService.summation(uId);
-        return summation;
+    public ResponseResult summation(int uId){
+        return signService.summation(uId);
+
     }
 
 

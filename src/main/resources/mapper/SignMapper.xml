@@ -4,6 +4,15 @@
 
 <!--namespace 命名空间   必须是唯一的-->
 <mapper namespace="com.example.dingding.mapper.SignDao">
+    <insert id="add" parameterType="com.example.dingding.entity.Sign">
+        insert into sign (sp_id,u_id,sign_time) values(#{spId},#{uId},now())
+    </insert>
+    <insert id="reissue" parameterType="com.example.dingding.entity.Sign">
+        insert into sign (sp_id,u_id,sign_time) values(#{spId},#{uId},now())
+    </insert>
+    <select id="summation" parameterType="int">
+        select sum(u_id) from sign group by u_id having u_id = #{uId}
+    </select>
 
 
 </mapper>
