@@ -1,5 +1,6 @@
 package com.example.dingding.controller;
 
+import com.example.dingding.annotation.DocumentLog;
 import com.example.dingding.mapper.DocumentMapper;
 import com.example.dingding.service.DocumentService;
 import com.example.dingding.vo.ResponseResult;
@@ -42,6 +43,7 @@ public class DocumentController {
      * @return
      * @throws IOException
      */
+    @DocumentLog(module = "文档服务",type = "add", operation = "修改文档")
     @PostMapping("update")
     public ResponseResult update(@RequestParam("file") MultipartFile file,String filename) throws IOException {
         return documentService.update(file, filename);

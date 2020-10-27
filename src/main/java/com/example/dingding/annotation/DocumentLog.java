@@ -1,0 +1,30 @@
+package com.example.dingding.annotation;
+
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+
+/**
+ * @description
+ * @className: OperationLog
+ * @package: com.example.dingding.annotation
+ * @author: Stephen Shen
+ * @date: 2020/10/27 下午3:42
+ */
+@Target(ElementType.METHOD)
+@Retention(RetentionPolicy.RUNTIME)
+public @interface DocumentLog {
+
+    //表示操作是哪个服务（模块）
+    String module() default "xxx服务";
+
+    //操作类型,添加、更新、删除
+    String type() default "add";
+
+    //操作者
+    String user() default "system";
+
+    //操作描述
+    String operation() default "";
+}
