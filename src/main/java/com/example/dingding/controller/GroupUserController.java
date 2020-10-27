@@ -28,9 +28,9 @@ public class GroupUserController {
 
 
     }
-    @GetMapping("/delect")
+    @GetMapping("/delete")
     public ResponseResult delectById(int id){
 
-        return groupUserService.delectById(id);
+        return groupUserService.deleteById(id);
     }
 }

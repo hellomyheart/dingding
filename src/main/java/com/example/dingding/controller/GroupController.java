@@ -30,7 +30,6 @@ public class GroupController {
         return groupService.update(request.getHeader(SystemConfig.TOKEN_HEADER),group);
     }
 
-
     @RequestMapping("/set")
     public ResponseResult insertInfo(HttpServletRequest request,Group group){
         return groupService.insertInfo(request.getHeader(SystemConfig.TOKEN_HEADER),group);

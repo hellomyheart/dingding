@@ -33,7 +33,7 @@ public class GroupUserServiceImpl implements GroupUserService {
     }
 
     @Override
-    public ResponseResult delectById(Integer id) {
+    public ResponseResult deleteById(Integer id) {
         int i = groupUserMapper.deleteById(id);
         if(i >0){
             return ResponseResult.ok();
