@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dingding.mapper.SignMapper">
+  <resultMap id="BaseResultMap" type="com.example.dingding.entity.Sign">
+    <!--@mbg.generated-->
+    <!--@Table sign-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="sp_id" jdbcType="INTEGER" property="spId" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="sign_time" jdbcType="TIMESTAMP" property="signTime" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, sp_id, u_id, sign_time, `status`
+  </sql>
+</mapper>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dingding.mapper.SignPlanMapper">
+  <resultMap id="BaseResultMap" type="com.example.dingding.entity.SignPlan">
+    <!--@mbg.generated-->
+    <!--@Table sign_plan-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="g_id" jdbcType="INTEGER" property="gId" />
+    <result column="u_id" jdbcType="INTEGER" property="uId" />
+    <result column="sp_name" jdbcType="VARCHAR" property="spName" />
+    <result column="start_time" jdbcType="TIME" property="startTime" />
+    <result column="end_time" jdbcType="TIME" property="endTime" />
+    <result column="start_date" jdbcType="DATE" property="startDate" />
+    <result column="end_date" jdbcType="DATE" property="endDate" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, g_id, u_id, sp_name, start_time, end_time, start_date, end_date, createtime, 
+    updatetime, `status`
+  </sql>
+</mapper>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.dingding.mapper.OrganizationGroupMapper">
+  <resultMap id="BaseResultMap" type="com.example.dingding.entity.OrganizationGroup">
+    <!--@mbg.generated-->
+    <!--@Table organization_group-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="o_id" jdbcType="INTEGER" property="oId" />
+    <result column="o_name" jdbcType="VARCHAR" property="oName" />
+    <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
+    <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    id, o_id, o_name, createtime, updatetime, `status`
+  </sql>
+</mapper>
