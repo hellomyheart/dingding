@@ -21,4 +21,8 @@
     id, g_id, u_id, sp_name, start_time, end_time, start_date, end_date, createtime, 
     updatetime, `status`
   </sql>
+  <update id="updatePlan" parameterType="com.example.dingding.entity.SignPlan">
+    update sign_plan set sp_name=#{spName},start_time=#{startTime},end_time=#{endTime},
+    start_date=#{startDate},end_date=#{endDate},updatetime=#{updatetime} where u_id=#{uId}
+  </update>
 </mapper>
