@@ -6,7 +6,7 @@ import com.example.dingding.vo.ResponseResult;
 
 public interface GroupLogService extends IService<GroupLog>{
 
-    public ResponseResult add(String token,GroupLog groupLog);
+
 
 
 }

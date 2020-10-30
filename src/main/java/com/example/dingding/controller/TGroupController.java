@@ -2,7 +2,9 @@ package com.example.dingding.controller;
 
 import com.example.dingding.config.SystemConfig;
 import com.example.dingding.entity.GroupLog;
+import com.example.dingding.entity.TGroup;
 import com.example.dingding.service.GroupLogService;
+import com.example.dingding.service.TGroupService;
 import com.example.dingding.vo.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,11 +20,11 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RestController
 @RequestMapping("group")
-public class GroupLogController {
+public class TGroupController {
     @Autowired
-    private GroupLogService groupLogService;
+    private TGroupService tGroupService;
     @RequestMapping("set")
-    public ResponseResult add(HttpServletRequest request, GroupLog groupLog){
-        return groupLogService.add(request.getHeader(SystemConfig.TOKEN_HEADER),groupLog);
+    public ResponseResult add(HttpServletRequest request, TGroup tGroup){
+        return tGroupService.add(request.getHeader(SystemConfig.TOKEN_HEADER),tGroup);
     }
 }
