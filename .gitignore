@@ -33,3 +33,4 @@ build/
 .vscode/
 /src/main/java/com/example/dingding/third/JedisUtil.java
 /src/main/java/com/example/dingding/third/SmsUtil.java
+/src/main/java/com/example/dingding/third/AliOssUtil.java
