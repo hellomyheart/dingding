@@ -14,4 +14,7 @@
     <!--@mbg.generated-->
     id, sp_id, u_id, sign_time, `status`
   </sql>
+  <insert id="insertSign" parameterType="com.example.dingding.entity.Sign">
+    insert into sign(sp_id,u_id,sign_time) values(#{spId},#{uId},#{signTime})
+  </insert>
 </mapper>

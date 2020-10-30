@@ -3,6 +3,7 @@ package com.example.dingding.service.impl;
 import com.example.dingding.dto.SignPlanDto;
 import com.example.dingding.vo.ResponseResult;
 
+import com.sun.xml.internal.bind.v2.TODO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,12 +37,12 @@ public class SignPlanServiceImpl extends ServiceImpl<SignPlanMapper, SignPlan> i
 
         return ResponseResult.ok();
     }
-
+//TODO uid
     @Override
     public ResponseResult update(String token, SignPlanDto dto) {
         SignPlan signPlan = new SignPlan();
 
-        signPlan.getUId();
+        signPlan.setUId(1);
         signPlan.setSpName(dto.getSpName());
         signPlan.setStartTime(dto.getStartTime());
         signPlan.setEndTime(dto.getEndTime());
