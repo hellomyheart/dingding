@@ -25,4 +25,15 @@ private TGroupMapper tGroupMapper;
         return ResponseResult.fail();
 
     }
+
+    @Override
+    public ResponseResult updateAll(String token, TGroup tGroup) {
+        tGroup.getUId();
+        tGroup.setGName(tGroup.getGName());
+        tGroupMapper.updateAll(tGroup);
+
+        return ResponseResult.ok();
+    }
+
+
 }

@@ -1,5 +1,6 @@
 package com.example.dingding.controller;
 
+import com.baomidou.mybatisplus.extension.api.R;
 import com.example.dingding.config.SystemConfig;
 import com.example.dingding.entity.GroupLog;
 import com.example.dingding.entity.TGroup;
@@ -19,12 +20,17 @@ import javax.servlet.http.HttpServletRequest;
  * description:
  */
 @RestController
-@RequestMapping("group")
+@RequestMapping("/group")
 public class TGroupController {
     @Autowired
     private TGroupService tGroupService;
-    @RequestMapping("set")
+    @RequestMapping("/set")
     public ResponseResult add(HttpServletRequest request, TGroup tGroup){
         return tGroupService.add(request.getHeader(SystemConfig.TOKEN_HEADER),tGroup);
+    }
+
+    @RequestMapping("/update")
+    public ResponseResult updateAll(HttpServletRequest request,TGroup tGroup){
+        return tGroupService.updateAll(request.getHeader(SystemConfig.TOKEN_HEADER),tGroup);
     }
 }

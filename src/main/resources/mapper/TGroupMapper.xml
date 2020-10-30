@@ -15,4 +15,7 @@
     <!--@mbg.generated-->
     id, u_id, g_name, createtime, updatetime, `status`
   </sql>
+  <update id="updateAll" parameterType="com.example.dingding.entity.TGroup">
+    update t_group set g_name=#{gName} where u_id=#{uId}
+  </update>
 </mapper>

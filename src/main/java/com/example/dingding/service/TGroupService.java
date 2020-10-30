@@ -8,5 +8,6 @@ import com.example.dingding.vo.ResponseResult;
 public interface TGroupService extends IService<TGroup>{
 
     public ResponseResult add(String token, TGroup tGroup);
-    
+    public ResponseResult updateAll(String token,TGroup tGroup);
+
 }
