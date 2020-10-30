@@ -1,5 +1,6 @@
 package com.example.dingding.controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.dingding.entity.TDocument;
 import com.example.dingding.service.TDocumentService;
 import com.example.dingding.vo.ResponseResult;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 /**
  * @description 文档控制器
@@ -25,6 +27,7 @@ public class DocumentController {
 
     /**
      * 上传文档
+     *
      * @param file
      * @return
      */
@@ -35,32 +38,48 @@ public class DocumentController {
 
     /**
      * 修改文档
+     *
      * @param file
      * @param fileId
      * @return
      * @throws IOException
      */
     @PostMapping("update")
-    public ResponseResult update(@RequestParam("file") MultipartFile file,Integer fileId) throws IOException {
-        return tDocumentService.update(file,fileId);
+    public ResponseResult update(@RequestParam("file") MultipartFile file, Integer fileId) throws IOException {
+        return tDocumentService.update(file, fileId);
     }
 
     /**
      * 删除文档
+     *
      * @param id
      * @return
      */
     @GetMapping("delete/{id}")
-    public ResponseResult delete(@PathVariable("id") Integer id){
+    public ResponseResult delete(@PathVariable("id") Integer id) {
         TDocument tDocument = new TDocument();
         tDocument.setStatus(0);
         tDocument.setId(id);
 
         boolean b = tDocumentService.updateById(tDocument);
-        if (b){
+        if (b) {
             return ResponseResult.ok();
         }
         return ResponseResult.fail();
+    }
+
+    /**
+     * 浏览全部文档
+     * @return
+     */
+    @GetMapping("select")
+    public ResponseResult select() {
+        //TODO:假userId
+        Integer uid = 1;
+        QueryWrapper<TDocument> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq(TDocument.COL_U_ID, uid);
+        List<TDocument> list = tDocumentService.list(queryWrapper);
+        return ResponseResult.ok(list);
     }
 
 
