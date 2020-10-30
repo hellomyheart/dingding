@@ -1,12 +1,10 @@
 package com.example.dingding.controller;
 
+import com.example.dingding.entity.TDocument;
 import com.example.dingding.service.TDocumentService;
 import com.example.dingding.vo.ResponseResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
@@ -35,9 +33,34 @@ public class DocumentController {
         return tDocumentService.save(file);
     }
 
+    /**
+     * 修改文档
+     * @param file
+     * @param fileId
+     * @return
+     * @throws IOException
+     */
     @PostMapping("update")
     public ResponseResult update(@RequestParam("file") MultipartFile file,Integer fileId) throws IOException {
         return tDocumentService.update(file,fileId);
+    }
+
+    /**
+     * 删除文档
+     * @param id
+     * @return
+     */
+    @GetMapping("delete/{id}")
+    public ResponseResult delete(@PathVariable("id") Integer id){
+        TDocument tDocument = new TDocument();
+        tDocument.setStatus(0);
+        tDocument.setId(id);
+
+        boolean b = tDocumentService.updateById(tDocument);
+        if (b){
+            return ResponseResult.ok();
+        }
+        return ResponseResult.fail();
     }
 
 
