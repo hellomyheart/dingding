@@ -18,7 +18,7 @@ public @interface DingDingLog {
     String type() default "add";
 
     //操作者id
-    String user() default "1";
+    int user() default 1;
 
     //操作描述
     String operation() default "";
