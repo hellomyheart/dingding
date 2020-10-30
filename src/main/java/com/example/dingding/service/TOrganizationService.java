@@ -14,10 +14,4 @@ public interface TOrganizationService extends IService<TOrganization>{
      */
     ResponseResult add(String header, OrganizationDto organizationDto);
 
-    /**
-     * 删除组织
-     * @param id
-     * @return
-     */
-    ResponseResult deleteOt(Integer id);
 }
