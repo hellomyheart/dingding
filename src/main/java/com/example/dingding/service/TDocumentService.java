@@ -5,8 +5,10 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.example.dingding.vo.ResponseResult;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 public interface TDocumentService extends IService<TDocument>{
 
 
-    ResponseResult save(MultipartFile file);
+    ResponseResult save(MultipartFile file) throws IOException;
 }

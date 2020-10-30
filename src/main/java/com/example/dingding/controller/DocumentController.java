@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+
 /**
  * @description 文档控制器
  * @className: DocumentController
@@ -29,7 +31,7 @@ public class DocumentController {
      * @return
      */
     @PostMapping("add")
-    public ResponseResult add(@RequestParam("file") MultipartFile file){
+    public ResponseResult add(@RequestParam("file") MultipartFile file) throws IOException {
         return tDocumentService.save(file);
     }
 
