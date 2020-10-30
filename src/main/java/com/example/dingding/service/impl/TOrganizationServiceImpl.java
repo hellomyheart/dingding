@@ -35,4 +35,12 @@ public class TOrganizationServiceImpl extends ServiceImpl<TOrganizationMapper, T
         return ResponseResult.fail();
     }
 
+    @Override
+    public ResponseResult deleteOt(Integer id) {
+        int i = tOrganizationMapper.deleteById(id);
+        if (i > 0){
+            return ResponseResult.ok();
+        }
+        return ResponseResult.fail();
+    }
 }

@@ -30,4 +30,13 @@ public class OrganizationController {
         return tOrganizationService.add(request.getHeader(SystemConfig.TOKEN_HEADER),organizationDto);
     }
 
+    /**
+     * 删除组织
+     * @param id
+     * @return
+     */
+    @PostMapping("/delete")
+    public ResponseResult deleteOt(Integer id){
+        return tOrganizationService.deleteOt(id);
+    }
 }
