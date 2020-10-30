@@ -1,25 +1,22 @@
-package com.example.dingding.entity;
+package com.example.dingding.dto;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
-import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import java.io.Serializable;
-import java.util.Date;
 import lombok.Data;
 
+import java.util.Date;
+
 /**
-    * 打卡计划表
-    */
-@ApiModel(value="com-example-dingding-entity-SignPlan")
+ * projectName: dingding
+ *
+ * @author: xr
+ * time: 2020/10/30 20:13
+ * description:打卡计划
+ */
 @Data
-@TableName(value = "sign_plan")
-public class SignPlan implements Serializable {
-    /**
-     * id
-     */
+public class SignPlanDto {
     @TableId(value = "id", type = IdType.AUTO)
     @ApiModelProperty(value="id")
     private Integer id;
@@ -87,30 +84,6 @@ public class SignPlan implements Serializable {
     @TableField(value = "status")
     @ApiModelProperty(value="状态：0删除，1正常")
     private Integer status;
-
-    private static final long serialVersionUID = 1L;
-
-    public static final String COL_ID = "id";
-
-    public static final String COL_G_ID = "g_id";
-
-    public static final String COL_U_ID = "u_id";
-
-    public static final String COL_SP_NAME = "sp_name";
-
-    public static final String COL_START_TIME = "start_time";
-
-    public static final String COL_END_TIME = "end_time";
-
-    public static final String COL_START_DATE = "start_date";
-
-    public static final String COL_END_DATE = "end_date";
-
-    public static final String COL_CREATETIME = "createtime";
-
-    public static final String COL_UPDATETIME = "updatetime";
-
-    public static final String COL_STATUS = "status";
 
 
 }
