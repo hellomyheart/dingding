@@ -1,8 +1,11 @@
 package com.example.dingding.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.dingding.commons.pagehelper.PageHelperParam;
 import com.example.dingding.third.AliOssUtil;
 import com.example.dingding.util.StrUtil;
 import com.example.dingding.vo.ResponseResult;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -75,6 +78,16 @@ public class TDocumentServiceImpl extends ServiceImpl<TDocumentMapper, TDocument
 
         }
         return ResponseResult.fail();
+    }
+
+    @Override
+    public PageInfo<TDocument> selectAll() {
+        //TODO:假userId
+        Integer uid = 1;
+        QueryWrapper<TDocument> queryWrapper = new QueryWrapper<>();
+        queryWrapper.eq(TDocument.COL_U_ID, uid);
+        List<TDocument> tDocuments = tDocumentMapper.selectList(queryWrapper);
+        return new PageInfo<TDocument>(tDocuments);
     }
 
 

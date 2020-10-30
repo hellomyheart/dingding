@@ -1,9 +1,12 @@
 package com.example.dingding.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.dingding.commons.pagehelper.PageHelperParam;
 import com.example.dingding.entity.TDocument;
 import com.example.dingding.service.TDocumentService;
 import com.example.dingding.vo.ResponseResult;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -73,13 +76,12 @@ public class DocumentController {
      * @return
      */
     @GetMapping("select")
-    public ResponseResult select() {
-        //TODO:假userId
-        Integer uid = 1;
-        QueryWrapper<TDocument> queryWrapper = new QueryWrapper<>();
-        queryWrapper.eq(TDocument.COL_U_ID, uid);
-        List<TDocument> list = tDocumentService.list(queryWrapper);
-        return ResponseResult.ok(list);
+    public ResponseResult select(@RequestBody PageHelperParam pageHelperParam) {
+
+        //开启分页
+        PageHelper.startPage(pageHelperParam);
+        PageInfo<TDocument> tDocumentPageInfo = tDocumentService.selectAll();
+        return ResponseResult.ok(tDocumentPageInfo);
     }
 
 
