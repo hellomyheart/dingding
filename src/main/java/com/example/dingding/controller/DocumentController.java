@@ -35,5 +35,10 @@ public class DocumentController {
         return tDocumentService.save(file);
     }
 
+    @PostMapping("update")
+    public ResponseResult update(@RequestParam("file") MultipartFile file,Integer fileId) throws IOException {
+        return tDocumentService.update(file,fileId);
+    }
+
 
 }
