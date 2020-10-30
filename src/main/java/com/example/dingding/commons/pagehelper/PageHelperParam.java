@@ -12,7 +12,7 @@ import java.io.Serializable;
  * @date: 2020/10/30 下午1:04
  */
 @Data
-public class pageHelperParam implements Serializable {
+public class PageHelperParam implements Serializable {
 
     private static final long serialVersionUID = -4367906965245231075L;
 
