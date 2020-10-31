@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
+import java.io.Serializable;
+
 /**
  * projectName: dingding
  * author: CGY
@@ -11,8 +13,9 @@ import lombok.Data;
  * description:
  */
 @Data
-public class OrganizationDto {
+public class OrganizationDto implements Serializable {
 
+    private static final long serialVersionUID = 8929482090994672097L;
     private String oName;
 
     private String oAddress;
