@@ -1,6 +1,7 @@
 package com.example.dingding.commons.controller;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.dingding.commons.entity.BaseEntity;
 import com.example.dingding.commons.pagehelper.PageHelperParam;
 import com.example.dingding.commons.service.BaseService;
@@ -41,6 +42,20 @@ public class ControllerUtill {
         boolean update = s.updateById(e);
         return result(update);
     }
+
+
+    /**
+     * 根据Id+条件修改一条记录
+     *
+     * @param e
+     * @return
+     */
+    public <S extends BaseService<E>, E extends BaseEntity> ResponseResult updateByIdAndQW(S s, E e, QueryWrapper<E> queryWrapper) {
+        boolean update = s.update(e, queryWrapper);
+        return result(update);
+    }
+
+
 
     /**
      * 根据ID删除
