@@ -2,10 +2,10 @@ package com.example.dingding.service;
 
 import com.example.dingding.dto.SignPlanDto;
 import com.example.dingding.entity.SignPlan;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.dingding.commons.service.BaseService;
 import com.example.dingding.vo.ResponseResult;
 
-public interface SignPlanService extends IService<SignPlan>{
+public interface SignPlanService extends BaseService<SignPlan>{
     /**
      *创建打卡计划
      * @param token

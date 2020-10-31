@@ -1,8 +1,8 @@
 package com.example.dingding.service;
 
 import com.example.dingding.entity.TEmployee;
-import com.baomidou.mybatisplus.extension.service.IService;
-public interface TEmployeeService extends IService<TEmployee>{
+import com.example.dingding.commons.service.BaseService;
+public interface TEmployeeService extends BaseService<TEmployee>{
 
 
 }

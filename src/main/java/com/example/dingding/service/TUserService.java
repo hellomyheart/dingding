@@ -4,10 +4,10 @@ import com.example.dingding.dto.UserDto;
 import com.example.dingding.dto.UserLoginDto;
 import com.example.dingding.dto.UserUpdateDto;
 import com.example.dingding.entity.TUser;
-import com.baomidou.mybatisplus.extension.service.IService;
+import com.example.dingding.commons.service.BaseService;
 import com.example.dingding.vo.ResponseResult;
 
-public interface TUserService extends IService<TUser>{
+public interface TUserService extends BaseService<TUser>{
 
     //效验手机号
     ResponseResult checkPhone(String phone);
