@@ -12,15 +12,10 @@ import lombok.Data;
  */
 @Data
 public class OrganizationDto {
-    @TableField(value = "o_name")
-    @ApiModelProperty(value="组织名")
+
     private String oName;
 
-    @TableField(value = "o_address")
-    @ApiModelProperty(value="组织地址")
     private String oAddress;
 
-    @TableField(value = "o_description")
-    @ApiModelProperty(value="组织描述")
     private String oDescription;
 }
