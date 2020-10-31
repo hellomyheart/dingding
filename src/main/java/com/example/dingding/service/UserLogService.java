@@ -7,7 +7,4 @@ import com.example.dingding.vo.ResponseResult;
 
 public interface UserLogService extends IService<UserLog>{
 
-    ResponseResult add(UserLoginDto loginDto);
-
-    ResponseResult query();
 }
