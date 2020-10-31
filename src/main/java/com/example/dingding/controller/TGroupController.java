@@ -19,6 +19,10 @@ import javax.servlet.http.HttpServletRequest;
  * time: 2020/10/30 20:32
  * description:
  */
+
+/**
+ * 群的创建
+ */
 @RestController
 @RequestMapping("/group")
 public class TGroupController {
@@ -28,6 +32,13 @@ public class TGroupController {
     public ResponseResult add(HttpServletRequest request, TGroup tGroup){
         return tGroupService.add(request.getHeader(SystemConfig.TOKEN_HEADER),tGroup);
     }
+
+    /**
+     * 群的修改
+     * @param request
+     * @param tGroup
+     * @return
+     */
 
     @RequestMapping("/update")
     public ResponseResult updateAll(HttpServletRequest request,TGroup tGroup){
