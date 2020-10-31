@@ -1,6 +1,7 @@
 package com.example.dingding.controller;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.example.dingding.commons.controller.ControllerUtill;
 import com.example.dingding.config.SystemConfig;
 import com.example.dingding.dto.OrganizationDto;
 import com.example.dingding.entity.TAdmin;
@@ -35,6 +36,9 @@ public class OrganizationController {
     @Autowired
     private TAdminService tAdminService;
 
+    @Autowired
+    private ControllerUtill controllerUtill;
+
     /**
      * 创建组织
      *
@@ -42,7 +46,20 @@ public class OrganizationController {
      */
     @PostMapping("/add")
     public ResponseResult add(@RequestBody OrganizationDto organizationDto, HttpServletRequest request) {
-        return tOrganizationService.add(request.getHeader(SystemConfig.TOKEN_HEADER), organizationDto);
+
+
+        TOrganization tOrganization = new TOrganization();
+
+
+        //TODO:等待后面修改
+        tOrganization.setUId(1);
+        tOrganization.setOName(organizationDto.getOName());
+        tOrganization.setOAddress(organizationDto.getOAddress());
+        tOrganization.setODescription(organizationDto.getODescription());
+        tOrganization.setCreatetime(new Date());
+        tOrganization.setUpdatetime(new Date());
+        tOrganization.setStatus(1);
+        return controllerUtill.save(tOrganizationService,tOrganization);
     }
 
     /**
