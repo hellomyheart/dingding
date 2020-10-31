@@ -3,6 +3,7 @@ package com.example.dingding.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.dingding.commons.controller.ControllerUtill;
 import com.example.dingding.config.SystemConfig;
+import com.example.dingding.core.type.RType;
 import com.example.dingding.dto.OrganizationDto;
 import com.example.dingding.entity.TAdmin;
 import com.example.dingding.entity.TEmployee;
@@ -59,7 +60,7 @@ public class OrganizationController {
         tOrganization.setCreatetime(new Date());
         tOrganization.setUpdatetime(new Date());
         tOrganization.setStatus(1);
-        return controllerUtill.save(tOrganizationService,tOrganization);
+        return controllerUtill.save(tOrganizationService, tOrganization);
     }
 
     /**
@@ -83,7 +84,7 @@ public class OrganizationController {
 
         tOrganization.setUpdatetime(new Date());
         tOrganization.setStatus(0);
-        return controllerUtill.updateById(tOrganizationService,tOrganization);
+        return controllerUtill.updateById(tOrganizationService, tOrganization);
     }
 
 
@@ -107,12 +108,7 @@ public class OrganizationController {
         tEmployee.setUpdatetime(date);
         tEmployee.setStatus(1);
 
-        boolean save = tEmployeeService.save(tEmployee);
-        if (save) {
-            return ResponseResult.ok();
-        }
-        return ResponseResult.fail();
-
+        return controllerUtill.save(tEmployeeService, tEmployee);
     }
 
     /**
@@ -132,18 +128,51 @@ public class OrganizationController {
         //TODO:假用户
         tAdmin.setUId(1);
         tAdmin.setOId(oId);
-        Date date=new Date();
+        Date date = new Date();
         tAdmin.setCreatetime(date);
         tAdmin.setUpdatetime(date);
         tAdmin.setStatus(1);
+        return controllerUtill.save(tAdminService, tAdmin);
+    }
+
+    /**
+     * 离开组织（admin&User）
+     *
+     * @param old
+     * @param request
+     * @return
+     */
+    @GetMapping("leave/{o_id}")
+    public ResponseResult leaveOrganization(@PathVariable("o_id") Integer old, HttpServletRequest request) {
+
+        QueryWrapper<TEmployee> queryWrapper = new QueryWrapper<>();
 
 
+        //TODO；假数据
+        queryWrapper.eq(TEmployee.COL_U_ID, 1);
+        queryWrapper.eq(TEmployee.COL_O_ID, old);
+        queryWrapper.eq(TEmployee.COL_STATUS, 1);
+        TEmployee tEmployee = new TEmployee();
 
-        boolean save = tAdminService.save(tAdmin);
-        if (save) {
-            return ResponseResult.ok();
+        tEmployee.setStatus(0);
+        tEmployee.setUpdatetime(new Date());
+
+        ResponseResult responseResult = controllerUtill.updateByIdAndQW(tEmployeeService, tEmployee, queryWrapper);
+        if (responseResult.getCode()== 1){
+            ResponseResult.ok();
         }
-        return ResponseResult.fail();
+
+        QueryWrapper<TAdmin> queryWrapper1 = new QueryWrapper<>();
+        //TODO；假数据
+        queryWrapper1.eq(TAdmin.COL_U_ID, 1);
+        queryWrapper1.eq(TAdmin.COL_O_ID, old);
+        queryWrapper1.eq(TAdmin.COL_STATUS, 1);
+
+        TAdmin tAdmin = new TAdmin();
+        tAdmin.setUpdatetime(new Date());
+        tAdmin.setStatus(0);
+        return controllerUtill.updateByIdAndQW(tAdminService, tAdmin, queryWrapper1);
 
     }
+
 }
