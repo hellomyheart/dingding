@@ -3,8 +3,10 @@ package com.example.dingding.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.example.dingding.config.SystemConfig;
 import com.example.dingding.dto.OrganizationDto;
+import com.example.dingding.entity.TAdmin;
 import com.example.dingding.entity.TEmployee;
 import com.example.dingding.entity.TOrganization;
+import com.example.dingding.service.TAdminService;
 import com.example.dingding.service.TEmployeeService;
 import com.example.dingding.service.TOrganizationService;
 import com.example.dingding.vo.ResponseResult;
@@ -29,6 +31,9 @@ public class OrganizationController {
 
     @Autowired
     private TEmployeeService tEmployeeService;
+
+    @Autowired
+    private TAdminService tAdminService;
 
     /**
      * 创建组织
@@ -81,11 +86,11 @@ public class OrganizationController {
     public ResponseResult joinUser(@PathVariable("o_id") Integer oId, HttpServletRequest request) {
         //TODO:假用户
 
-        TEmployee tEmployee =new TEmployee();
+        TEmployee tEmployee = new TEmployee();
         //TODO:假用户
         tEmployee.setUId(1);
         tEmployee.setOId(oId);
-        Date date=new Date();
+        Date date = new Date();
         tEmployee.setCreatetime(date);
         tEmployee.setUpdatetime(date);
         tEmployee.setStatus(1);
@@ -108,7 +113,25 @@ public class OrganizationController {
     //TODO:待写
     @GetMapping("joinadmin/{o_id}/")
     public ResponseResult joinAdmin(@PathVariable("o_id") Integer oId, HttpServletRequest request) {
+        //TODO:假用户
 
-        return null;
+        TAdmin tAdmin = new TAdmin();
+
+        //TODO:假用户
+        tAdmin.setUId(1);
+        tAdmin.setOId(oId);
+        Date date=new Date();
+        tAdmin.setCreatetime(date);
+        tAdmin.setUpdatetime(date);
+        tAdmin.setStatus(1);
+
+
+
+        boolean save = tAdminService.save(tAdmin);
+        if (save) {
+            return ResponseResult.ok();
+        }
+        return ResponseResult.fail();
+
     }
 }
