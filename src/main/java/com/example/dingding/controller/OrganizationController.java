@@ -71,6 +71,7 @@ public class OrganizationController {
     //TODO: 后期会同时删除相关表
     @PostMapping("/delete")
     public ResponseResult deleteOt(Integer id) {
+
         QueryWrapper<TOrganization> queryWrapper = new QueryWrapper<>();
         //TODO:
         queryWrapper.eq(TOrganization.COL_ID, id);
@@ -82,12 +83,7 @@ public class OrganizationController {
 
         tOrganization.setUpdatetime(new Date());
         tOrganization.setStatus(0);
-
-        boolean update = tOrganizationService.updateById(tOrganization);
-        if (update) {
-            return ResponseResult.ok();
-        }
-        return ResponseResult.fail();
+        return controllerUtill.updateById(tOrganizationService,tOrganization);
     }
 
 
