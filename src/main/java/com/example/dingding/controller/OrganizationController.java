@@ -66,7 +66,6 @@ public class OrganizationController {
         tOrganization.setUpdatetime(new Date());
         tOrganization.setStatus(0);
 
-
         boolean update = tOrganizationService.updateById(tOrganization);
         if (update) {
             return ResponseResult.ok();

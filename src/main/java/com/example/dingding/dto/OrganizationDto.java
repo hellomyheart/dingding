@@ -1,6 +1,7 @@
 package com.example.dingding.dto;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.example.dingding.commons.entity.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 

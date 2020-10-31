@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.dingding.commons.entity.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
@@ -16,7 +17,7 @@ import lombok.Data;
 @ApiModel(value="com-example-dingding-entity-TOrganization")
 @Data
 @TableName(value = "t_organization")
-public class TOrganization implements Serializable {
+public class TOrganization implements BaseEntity {
     /**
      * 组织id
      */

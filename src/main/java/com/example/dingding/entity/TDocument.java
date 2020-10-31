@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.dingding.commons.entity.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
@@ -16,7 +17,7 @@ import lombok.Data;
 @ApiModel(value="com-example-dingding-entity-TDocument")
 @Data
 @TableName(value = "t_document")
-public class TDocument implements Serializable {
+public class TDocument implements BaseEntity {
     @TableId(value = "id", type = IdType.AUTO)
     @ApiModelProperty(value="")
     private Integer id;

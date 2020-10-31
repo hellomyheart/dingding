@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.example.dingding.commons.entity.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
@@ -16,7 +17,7 @@ import lombok.Data;
 @ApiModel(value="com-example-dingding-entity-TUser")
 @Data
 @TableName(value = "t_user")
-public class TUser implements Serializable {
+public class TUser implements BaseEntity {
     /**
      * userId
      */
