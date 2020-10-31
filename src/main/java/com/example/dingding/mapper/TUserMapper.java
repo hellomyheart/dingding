@@ -1,6 +1,6 @@
 package com.example.dingding.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+ import com.example.dingding.commons.mapper.BaseMapper;
 import com.example.dingding.entity.TUser;
 import org.apache.catalina.User;
 import org.apache.ibatis.annotations.Param;
