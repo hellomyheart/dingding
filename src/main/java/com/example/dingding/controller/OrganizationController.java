@@ -38,6 +38,7 @@ public class OrganizationController {
      * @param id
      * @return
      */
+    //TODO: 后期会同时删除相关表
     @PostMapping("/delete")
     public ResponseResult deleteOt(Integer id){
         QueryWrapper<TOrganization> queryWrapper =new QueryWrapper<>();
