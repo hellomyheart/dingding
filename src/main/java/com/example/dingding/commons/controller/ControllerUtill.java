@@ -45,7 +45,7 @@ public class ControllerUtill {
 
 
     /**
-     * 根据Id+条件修改一条记录
+     * 根据entity+条件修改一条记录
      *
      * @param e
      * @return
